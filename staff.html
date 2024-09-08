@@ -103,5 +103,83 @@
     </footer>
 
     <script src="doctors.js"></script>
+
+
+
+
+
+        <!-- Editable Medical History -->
+        <div class="content">
+            <h3>Edit Student Medical History</h3>
+            <table class="medical-history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Condition</th>
+                        <th>Doctor</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="medicalHistoryTableBody">
+                    <tr>
+                        <td><input type="date" value="2024-05-15"></td>
+                        <td><input type="text" value="Flu"></td>
+                        <td><input type="text" value="Dr. Khoza"></td>
+                        <td><button class="save-button">Save</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" value="2024-06-10"></td>
+                        <td><input type="text" value="Allergy"></td>
+                        <td><input type="text" value="Dr. Taina"></td>
+                        <td><button class="save-button">Save</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Add New Medical Condition -->
+            <h3>Add New Condition</h3>
+            <form id="newConditionForm">
+                <label for="newConditionDate">Date:</label>
+                <input type="date" id="newConditionDate" required>
+
+                <label for="newCondition">Condition:</label>
+                <input type="text" id="newCondition" required placeholder="Enter condition">
+
+                <label for="newDoctor">Doctor:</label>
+                <input type="text" id="newDoctor" required placeholder="Enter doctor's name">
+
+                <button type="submit">Add Condition</button>
+                <button type="button" onclick="clearForm('newConditionForm')">Clear</button>
+                <p class="error-message" id="newConditionError"></p>
+            </form>
+        </div>
+
+        <!-- Reschedule Appointment Section -->
+        <div class="content">
+            <h3>Manage Appointments</h3>
+            <form id="manageAppointmentForm">
+                <label for="appointmentSelect">Select Appointment:</label>
+                <select id="appointmentSelect" name="appointmentSelect" required>
+                    <option value="">-- Select an Appointment --</option>
+                    <option value="appointment1">Realeboha Mokodutlo - May 15, 2024, 10:00 AM</option>
+                    <option value="appointment2">Lihle Hobe - June 10, 2024, 11:00 AM</option>
+                </select>
+
+                <label for="newAppointmentDate">New Appointment Date (for Rescheduling):</label>
+                <input type="date" id="newAppointmentDate" name="newAppointmentDate" required>
+
+                <label for="newAppointmentTime">New Appointment Time (for Rescheduling):</label>
+                <input type="time" id="newAppointmentTime" name="newAppointmentTime" required>
+
+                <input type="submit" value="Reschedule Appointment">
+                <button type="button" id="cancelAppointmentBtn" onclick="cancelAppointment()">Cancel Appointment</button>
+                <p class="error-message" id="manageAppointmentError"></p>
+                <p class="success-message" id="manageAppointmentSuccess"></p>
+            </form>
+        </div>
+
+
+
+
 </body>
 </html>
