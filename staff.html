@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSU Clinic Online System - Doctors</title>
+    <link rel="stylesheet" href="staff.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header">
+            <h1>Walter Sisulu University Clinic - Doctors</h1>
+            <nav class="navbar">
+                <a href="#appointments">Appointments</a>
+                <a href="#profile">Profile</a>
+                <a href="index.html">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Doctor Dashboard -->
+    <div class="container">
+        <h2>Welcome, Dr. <span id="doctor-name">Smith</span></h2>
+
+        <!-- Appointments Table -->
+        <div id="appointments" class="bookings-section">
+            <h3>Upcoming Appointments</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Reason for Appointment</th>
+                        <th>Requested Date</th>
+                        <th>Response Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="appointments-body">
+                    <tr data-appointment="1">
+                        <td>Realeboha Mokodutlo</td>
+                        <td>Flu</td>
+                        <td>2024-09-15</td>
+                        <td><input type="date" class="response-date" placeholder="Enter date"></td>
+                        <td>
+                            <button class="respond-btn" data-patient="20212133" data-appointment="1">Respond</button>
+                        </td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Profile Update -->
+        <div id="profile" class="staff-info">
+            <h3>Update Profile</h3>
+            <form id="profile-form">
+                <label for="doctor-name">Name</label>
+                <input type="text" id="doctor-name" name="doctor-name" value="Dr. Smith" required>
+                <input type="submit" value="Update Profile">
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:PotsdamClinic@wsu.ac.za">PotsdamClinic@wsu.ac.za</a></p>
+                <p>Phone: +27(42) 345 6789</p>
+            </div>
+            <div class="footer-section">
+                <h3>Address</h3>
+                <p>Walter Sisulu University (BCC)</p>
+                <p>East London, Eastern Cape</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="https://www.facebook.com/wsu" target="_blank">Facebook</a> |
+                <a href="https://twitter.com/wsu" target="_blank">Twitter</a> |
+                <a href="https://www.instagram.com/wsu" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Walter Sisulu University Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="doctors.js"></script>
+</body>
+</html>

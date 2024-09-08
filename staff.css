@@ -1,0 +1,190 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header Styles */
+.header {
+    background-color: #004d99;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    margin-top: 10px;
+}
+
+/* Navigation Menu Styles */
+.navbar a {
+    color: #ffffff; /* Change this to match your desired text color */
+    text-decoration: none; /* Removes underline from links */
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #003d80; /* Optional: background color on hover */
+    border-radius: 5px; /* Optional: rounded corners on hover */
+}
+
+
+/* Container Styles */
+.container {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+/* Staff Info Form Styles */
+.staff-info {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.staff-info form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.staff-info form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.staff-info form input[type="submit"] {
+    background-color: #004d99;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.staff-info form input[type="submit"]:hover {
+    background-color: #003d80;
+}
+
+/* Bookings Table Styles */
+.bookings-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.bookings-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bookings-section th, .bookings-section td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.bookings-section th {
+    background-color: #004d99;
+    color: white;
+}
+
+.status-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Availability Section Styles */
+.availability-section {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.availability-section form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.availability-section form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.availability-section form input[type="submit"] {
+    background-color: #004d99;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.availability-section form input[type="submit"]:hover {
+    background-color: #003d80;
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: #004d99;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    margin-top: 0;
+    font-size: 18px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 5px;
+}
+
+.footer-section p, .footer-section a {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-section a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    background-color: #003d80;
+    padding: 10px 0;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}

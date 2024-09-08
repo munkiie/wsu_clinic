@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSU Clinic Online System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004466;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+        .content, .dashboard-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        h2, h3 {
+            color: #004466;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"], button {
+            background: #004466;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover, button:hover {
+            background: #006699;
+        }
+        .login-container, .notification {
+            width: 300px;
+            margin: 50px auto;
+        }
+        .dashboard-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .chat-box {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .medical-history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .medical-history-table th, .medical-history-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .medical-history-table th {
+            background-color: #f4f4f4;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .success-message {
+            color: green;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Walter Sisulu University Clinic</h1>
+    </header>
+
+
+
+
+
+
+
+<head>
+<style>
+body {
+  background-image: url('https://images.squarespace-cdn.com/content/v1/59ad30139f7456bae9782d44/1515617360694-Y1AY7BI2E2FYPR1Z2YUD/shutterstock_515731801.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+</head>
+
+
+
+
+    <!-- Notification -->
+    <div id="appointmentNotification" class="notification">
+        You have an upcoming appointment on <strong>November 20, 2024</strong> at 10:00 AM with Dr. Khoza.
+    </div>
+
+    <!-- Login Section -->
+    <div class="login-container">
+        <div class="login-box">
+            <h2 id="loginTitle">Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required minlength="6">
+
+                <input type="submit" value="Login">
+                <button type="button" onclick="clearForm('loginForm')">Clear</button>
+                <p class="error-message" id="loginError"></p>
+            </form>
+            <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+            <button onclick="toggleLogin()">Switch to Staff Login</button>
+        </div>
+    </div>
+
+    <!-- Student Dashboard -->
+    <div class="container" id="studentDashboard" style="display:none;">
+
+
+
+
+<h2 style="background-color:white;">Welcome to Your Dashboard, <span id="user-name">Realeboha Mokodutlo</span></h2>
+        <div class="dashboard-container">
+            <div class="dashboard-item">
+                <h3>Personal Information</h3>
+                <p><strong>Name:</strong> Realeboha Mokodutlo</p>
+                <p><strong>Student Number:</strong> 223191310</p>
+                <p><strong>Email:</strong> 223191310@mywsu.ac.za</p>
+            </div>
+            <div class="dashboard-item">
+                <h3>Medical History</h3>
+                <p>Flu - May 15, 2024 - Dr. Khoza</p>
+                <p>Allergy - June 10, 2024 - Dr. Taina</p>
+            </div>
+        </div>
+
+        <!-- Appointment Booking -->
+        <div class="content" id="bookAppointment">
+            <h2>Book an Appointment</h2>
+            <form id="appointmentForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="Realeboha Mokodutlo" required readonly>
+
+                <label for="doctor">Choose a Doctor:</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="">-- Select a Doctor --</option>
+                    <option value="dr-khoza">Dr. Khoza</option>
+                    <option value="dr-linden">Dr. Linden</option>
+                </select>
+
+                <label for="appointmentDate">Appointment Date:</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+                <label for="appointmentTime">Appointment Time:</label>
+                <input type="time" id="appointmentTime" name="appointmentTime" required>
+
+                <input type="submit" value="Book Appointment">
+                <button type="button" onclick="clearForm('appointmentForm')">Clear</button>
+                <p class="error-message" id="appointmentError"></p>
+                <p class="success-message" id="appointmentSuccess"></p>
+            </form>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="content" id="chat">
+            <h2>Chat with Clinic Staff</h2>
+            <div class="chat-box" id="chatBox">
+                <div class="message">
+                    <span class="user"><strong>Dr. Khoza:</strong></span>
+                    <span class="text">How can I assist you today?</span>
+                </div>
+            </div>
+            <form class="chat-form" id="chatForm">
+                <textarea id="chatMessage" placeholder="Type your message..." required></textarea>
+                <button type="submit">Send</button>
+                <p class="error-message" id="chatError"></p>
+            </form>
+        </div>
+
+        <!-- Logout Button -->
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Staff Dashboard -->
+    <div class="container" id="staffDashboard" style="display:none;">
+<h2 style="background-color:white;">Welcome to Your Dashboard, <span id="staff-name">Dr. Khoza</span></h2>
+        
+        <div class="content">
+            <h3>Upcoming Appointments</h3>
+            <ul id="appointmentsList">
+                <li>Realeboha Mokodutlo - May 15, 2024, 10:00 AM with Dr. Khoza</li>
+                <li>Lihle Hobe - June 10, 2024, 11:00 AM with Dr. Taina</li>
+            </ul>
+        </div>
+
+        <!-- Editable Medical History -->
+        <div class="content">
+            <h3>Edit Student Medical History</h3>
+            <table class="medical-history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Condition</th>
+                        <th>Doctor</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="medicalHistoryTableBody">
+                    <tr>
+                        <td><input type="date" value="2024-05-15"></td>
+                        <td><input type="text" value="Flu"></td>
+                        <td><input type="text" value="Dr. Khoza"></td>
+                        <td><button class="save-button">Save</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" value="2024-06-10"></td>
+                        <td><input type="text" value="Allergy"></td>
+                        <td><input type="text" value="Dr. Taina"></td>
+                        <td><button class="save-button">Save</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Add New Medical Condition -->
+            <h3>Add New Condition</h3>
+            <form id="newConditionForm">
+                <label for="newConditionDate">Date:</label>
+                <input type="date" id="newConditionDate" required>
+
+                <label for="newCondition">Condition:</label>
+                <input type="text" id="newCondition" required placeholder="Enter condition">
+
+                <label for="newDoctor">Doctor:</label>
+                <input type="text" id="newDoctor" required placeholder="Enter doctor's name">
+
+                <button type="submit">Add Condition</button>
+                <button type="button" onclick="clearForm('newConditionForm')">Clear</button>
+                <p class="error-message" id="newConditionError"></p>
+            </form>
+        </div>
+
+        <!-- Reschedule Appointment Section -->
+        <div class="content">
+            <h3>Manage Appointments</h3>
+            <form id="manageAppointmentForm">
+                <label for="appointmentSelect">Select Appointment:</label>
+                <select id="appointmentSelect" name="appointmentSelect" required>
+                    <option value="">-- Select an Appointment --</option>
+                    <option value="appointment1">Realeboha Mokodutlo - May 15, 2024, 10:00 AM</option>
+                    <option value="appointment2">Lihle Hobe - June 10, 2024, 11:00 AM</option>
+                </select>
+
+                <label for="newAppointmentDate">New Appointment Date (for Rescheduling):</label>
+                <input type="date" id="newAppointmentDate" name="newAppointmentDate" required>
+
+                <label for="newAppointmentTime">New Appointment Time (for Rescheduling):</label>
+                <input type="time" id="newAppointmentTime" name="newAppointmentTime" required>
+
+                <input type="submit" value="Reschedule Appointment">
+                <button type="button" id="cancelAppointmentBtn" onclick="cancelAppointment()">Cancel Appointment</button>
+                <p class="error-message" id="manageAppointmentError"></p>
+                <p class="success-message" id="manageAppointmentSuccess"></p>
+            </form>
+        </div>
+
+        <!-- Logout Button -->
+        <button onclick="logout()">Logout</button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact Us: PotsdamClinic@wsu.ac.za | +27(42) 345 6789</p>
+        <p>Walter Sisulu University (BCC), East London, Eastern Cape</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const validStudentUsername = 'Funi';
+        const validStudentPassword = 'Lebohang1';
+        const validStaffUsername = 'Khoza';
+        const validStaffPassword = 'Doctor123';
+        let isStaffLogin = false;
+
+        function toggleLogin() {
+            isStaffLogin = !isStaffLogin;
+
+            const loginTitle = document.getElementById('loginTitle');
+            const loginSubmit = document.querySelector('#loginForm input[type="submit"]');
+
+            if (isStaffLogin) {
+                loginTitle.textContent = 'Staff Login';
+                loginSubmit.value = 'Login as Staff';
+            } else {
+                loginTitle.textContent = 'Student Login';
+                loginSubmit.value = 'Login as Student';
+            }
+
+            document.getElementById('loginError').textContent = ''; // Clear any error
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const loginError = document.getElementById('loginError');
+
+            if (!username || !password) {
+                loginError.textContent = 'Username and password are required.';
+                return;
+            }
+
+            if (!isStaffLogin && username === validStudentUsername && password === validStudentPassword) {
+                document.querySelector('.login-container').style.display = 'none';
+                document.getElementById('studentDashboard').style.display = 'block';
+                displayNotification();
+            } else if (isStaffLogin && username === validStaffUsername && password === validStaffPassword) {
+                document.querySelector('.login-container').style.display = 'none';
+                document.getElementById('staffDashboard').style.display = 'block';
+            } else {
+                loginError.textContent = 'Invalid username or password!';
+            }
+        });
+
+        function forgotPassword() {
+            const email = prompt('Please enter your email to reset your password:');
+            if (email) {
+                alert(`Password reset link has been sent to ${email}`);
+            }
+        }
+
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const doctor = document.getElementById('doctor').value;
+            const appointmentDate = document.getElementById('appointmentDate').value;
+            const appointmentTime = document.getElementById('appointmentTime').value;
+            const appointmentError = document.getElementById('appointmentError');
+            const appointmentSuccess = document.getElementById('appointmentSuccess');
+
+            if (!doctor || !appointmentDate || !appointmentTime) {
+                appointmentError.textContent = 'Please fill out all required fields.';
+                appointmentSuccess.textContent = '';
+            } else {
+                appointmentError.textContent = '';
+                appointmentSuccess.textContent = 'Appointment booked successfully!';
+            }
+        });
+
+        function cancelAppointment() {
+            const appointmentSelect = document.getElementById('appointmentSelect').value;
+            const manageAppointmentError = document.getElementById('manageAppointmentError');
+            const manageAppointmentSuccess = document.getElementById('manageAppointmentSuccess');
+
+            if (appointmentSelect === '') {
+                manageAppointmentError.textContent = 'Please select an appointment to cancel.';
+                manageAppointmentSuccess.textContent = '';
+            } else {
+                manageAppointmentError.textContent = '';
+                manageAppointmentSuccess.textContent = 'Appointment canceled successfully!';
+                document.getElementById('appointmentSelect').value = ''; // Clear selection
+            }
+        }
+
+        document.getElementById('manageAppointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const appointmentSelect = document.getElementById('appointmentSelect').value;
+            const newAppointmentDate = document.getElementById('newAppointmentDate').value;
+            const newAppointmentTime = document.getElementById('newAppointmentTime').value;
+            const manageAppointmentError = document.getElementById('manageAppointmentError');
+            const manageAppointmentSuccess = document.getElementById('manageAppointmentSuccess');
+
+            if (!appointmentSelect || !newAppointmentDate || !newAppointmentTime) {
+                manageAppointmentError.textContent = 'Please fill out all required fields.';
+                manageAppointmentSuccess.textContent = '';
+            } else {
+                manageAppointmentError.textContent = '';
+                manageAppointmentSuccess.textContent = 'Appointment rescheduled successfully!';
+            }
+        });
+
+        document.getElementById('chatForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const message = document.getElementById('chatMessage').value.trim();
+            const chatError = document.getElementById('chatError');
+
+            if (!message) {
+                chatError.textContent = 'Please type a message.';
+                return;
+            }
+
+            chatError.textContent = '';
+
+            const chatBox = document.getElementById('chatBox');
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message';
+            userMessage.innerHTML = `<span class="user"><strong>You:</strong></span> <span class="text">${message}</span>`;
+            chatBox.appendChild(userMessage);
+
+            document.getElementById('chatMessage').value = '';
+
+            setTimeout(function() {
+                const doctorMessage = document.createElement('div');
+                doctorMessage.className = 'message';
+                doctorMessage.innerHTML = `<span class="user"><strong>Dr. Khoza:</strong></span> <span class="text">Thank you for your message. I will get back to you shortly.</span>`;
+                chatBox.appendChild(doctorMessage);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+        });
+
+        function logout() {
+            document.getElementById('studentDashboard').style.display = 'none';
+            document.getElementById('staffDashboard').style.display = 'none';
+            document.querySelector('.login-container').style.display = 'block';
+        }
+
+        function displayNotification() {
+            const notification = document.getElementById('appointmentNotification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+
+        function clearForm(formId) {
+            document.getElementById(formId).reset();
+        }
+    </script>
+
+
+</body>
+</html>
