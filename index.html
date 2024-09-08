@@ -34,7 +34,7 @@
         </form>
         <div id="login-message"></div> <!-- Added div for displaying login messages -->
         <a href="#" onclick="forgotPassword()">Forgot Password?</a>
-            <button onclick="toggleLogin()">Switch to Staff Login</button>
+            
         </div>
     
     </div>
@@ -116,6 +116,17 @@
                 loginMessage.style.color = 'red'; // Change text color to red
             }
         });
+
+        function forgotPassword() {
+    const email = prompt('Please enter your email to reset your password:');
+    if (email) {
+        alert(Password reset link has been sent to ${email});
+     }
+        }
+
     </script>
+
+
+
 </body>
 </html>
