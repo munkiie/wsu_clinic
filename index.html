@@ -34,11 +34,12 @@
         </form>
         <div id="login-message"></div> <!-- Added div for displaying login messages -->
         <a href="#" onclick="forgotPassword()">Forgot Password?</a>
-            
         </div>
-    
+       
+            
     </div>
-
+    
+        
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -97,6 +98,12 @@
                     "doc002": "docpass2"
                 }
             };
+            function forgotPassword() {
+const email = prompt('Please enter your email to reset your password:');
+if (email) {
+alert(Password reset link has been sent to ${email});
+     }
+        }
 
             // Check credentials
             if (credentials[role] && credentials[role][username] === password) {
@@ -117,16 +124,6 @@
             }
         });
 
-        function forgotPassword() {
-    const email = prompt('Please enter your email to reset your password:');
-    if (email) {
-        alert(Password reset link has been sent to ${email});
-     }
-        }
-
-    </script>
-
-
-
+    </scrip>
 </body>
 </html>
