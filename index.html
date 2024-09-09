@@ -32,10 +32,55 @@
 
             <input type="submit" value="Login">
         </form>
-        <div id="login-message"></div> <!-- Added div for displaying login messages -->
-        <a href="#" onclick="forgotPassword()">Forgot Password?</a>
-        </div>
-       
+        
+
+
+</head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forgot Password</title>
+</head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forgot Password</title>
+            <div class="center">
+                <div id="login-message"></div> <!-- Div for displaying the email input form -->
+                <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+            </div>
+        
+            <script>
+                function forgotPassword() {
+                    // Update the div with an input field for email and a submit button
+                    document.getElementById('login-message').innerHTML = `
+                        <p>Please enter your email address to reset your password:</p>
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+                        <input type="submit" value="Submit" onclick="submitEmail()">
+                    `;
+                }
+        
+                function submitEmail() {
+                    const email = document.getElementById('email').value;
+                    if (email) {
+                        // Here you can add AJAX or further logic to process the email
+                        document.getElementById('login-message').innerHTML = `
+                            <p>A password reset link has been sent to ${email}. Please check your inbox.</p>
+                        `;
+                    } else {
+                        // Display an error if the email field is empty
+                        document.getElementById('login-message').innerHTML += `
+                            <p style="color:red;">Please enter a valid email address.</p>
+                        `;
+                    }
+                }
+            </script>
+        </body>
+
+
+
+
+
+
+
             
     </div>
     
