@@ -1,134 +1,146 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WSU Clinic Online System - Home</title>
-    <link rel="stylesheet" href="index.css">
+    <title>WSU Clinic Online System - Doctors</title>
+    <link rel="stylesheet" href="staff.css">
 </head>
 <body>
+
     <!-- Header -->
     <header>
         <div class="header">
-            <h1>Walter Sisulu University Clinic</h1>
+            <h1>Walter Sisulu University Clinic - Doctors</h1>
+            <nav class="navbar">
+                <a href="#appointments">Appointments</a>
+                <a href="#profile">Profile</a>
+                <a href="index.html">Logout</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Login Section -->
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="login-form">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-
-            <label for="role">Role</label>
-            <select id="role" name="role" required>
-                <option value="patient">Patient</option>
-                <option value="doctor">Doctor</option>
-            </select>
-
-            <input type="submit" value="Login">
-        </form>
-        
-
-
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login Page</title>
+    <head>
+        <style>
+            body {
+              background-image: url('https://www.kevinmd.com/blog/wp-content/uploads/shutterstock_255837643-1.jpg');
+              background-repeat: no-repeat;
+              background-attachment: fixed;  
+              background-size: cover;
+            }
+        </style>
     </head>
-    <body>
-        <form id="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
-    
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-    
-            <label for="role">Role:</label>
-            <select id="role" name="role" required>
-                <option value="patient">Patient</option>
-                <option value="doctor">Doctor</option>
-            </select><br><br>
-    
-            <button type="submit">Login</button>
-        </form>
-    
-        <p id="login-message"></p>
-    
-       
-    
-                // Accept any credentials
-                loginMessage.textContent = `Login successful! Redirecting to the ${role} dashboard...`;
-                loginMessage.style.color = 'green'; // Change text color to green
-    
-                // Redirect to appropriate dashboard after a short delay
-                setTimeout(() => {
-                    if (role === 'patient') {
-                        window.location.href = 'patients.html'; // Redirect to patient dashboard
-                    } else {
-                        window.location.href = 'staff.html'; // Redirect to doctor dashboard
-                    }
-                }, 2000);
-            });
-        </script>
-    </body>
-
-        
-
-</head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Forgot Password</title>
-</head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Forgot Password</title>
-            <div class="center">
-                <div id="login-message"></div> <!-- Div for displaying the email input form -->
-                <a href="#" onclick="forgotPassword()">Forgot Password?</a>
-            </div>
-        
-            <script>
-                function forgotPassword() {
-                    // Update the div with an input field for email and a submit button
-                    document.getElementById('login-message').innerHTML = `
-                        <p>Please enter your email address to reset your password:</p>
-                        <input type="email" id="email" placeholder="Enter your email address" required>
-                        <input type="submit" value="Submit" onclick="submitEmail()">
-                    `;
-                }
-        
-                function submitEmail() {
-                    const email = document.getElementById('email').value;
-                    if (email) {
-                        // Here you can add AJAX or further logic to process the email
-                        document.getElementById('login-message').innerHTML = `
-                            <p>A password reset link has been sent to ${email}. Please check your inbox.</p>
-                        `;
-                    } else {
-                        // Display an error if the email field is empty
-                        document.getElementById('login-message').innerHTML += `
-                            <p style="color:red;">Please enter a valid email address.</p>
-                        `;
-                    }
-                }
-            </script>
-        </body>
 
 
 
 
+    <!-- Doctor Dashboard -->
+    <div class="container">
+        <h2>Welcome, Dr. <span id="doctor-name">Smith</span></h2>
+
+
+ <!-- Profile Update -->
+ <div id="profile" class="staff-info">
+    <h3>Update Profile</h3>
+    <form id="profile-form">
+        <label for="doctor-name">Name</label>
+        <input type="text" id="doctor-name" name="doctor-name" value="Dr. Smith" required>
+        <input type="submit" value="Update Profile">
+
+    </form>
+</div>
+</div>
+
+
+        <!-- Appointments Table -->
+        <div id="appointments" class="bookings-section">
+            <h3>Upcoming Appointments</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Reason for Appointment</th>
+                        <th>Requested Date</th>
+                        <th>Response Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="appointments-body">
+                    <tr data-appointment="1">
+                        <td>Realeboha Mokodutlo</td>
+                        <td>Flu</td>
+                        <td>2024-09-20</td>
+                        <td><input type="date" class="response-date" placeholder="Enter date"></td>
+                        <td>
+                            <button class="respond-btn" data-patient="20212133" data-appointment="1">Respond</button>
+                        </td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </div>
 
 
 
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Styled Medical History Table</title>
+            </head>
+            <body>
+
+                <div id="medicalHistory" class="content">
+                    <h3>Edit Student Medical History</h3>
+                    <div class="table-container">
+                        <table class="medical-history-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Condition</th>
+                                    <th>Doctor</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody id="medicalHistoryTableBody">
+                                <tr>
+                                    <td><input type="date" value="2024-05-15"></td>
+                                    <td><input type="text" value="Flu"></td>
+                                    <td><input type="text" value="Dr. Smith"></td>
+                                    <td><button class="save-button">Save</button></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="date" value="2024-06-10"></td>
+                                    <td><input type="text" value="Allergy"></td>
+                                    <td><input type="text" value="Dr. Smith"></td>
+                                    <td><button class="save-button">Save</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             
-    </div>
+            </body>
+
+    <!-- Add New Medical Condition -->
+    <h3 style="background-color:white;">Add New Condition
+    <form id="newConditionForm">
+        <label for="newConditionDate">Date:</label>
+        <input type="date" id="newConditionDate" required>
+
+        <label for="newCondition">Condition:</label>
+        <input type="text" id="newCondition" required placeholder="Enter condition">
+
+        <label for="newDoctor">Doctor:</label>
+        <input type="text" id="newDoctor" required placeholder="Enter doctor's name">
+
+        <button type="submit">Add Condition</button>
+        <button type="button" onclick="clearForm('newConditionForm')">Clear</button>
+        <p class="error-message" id="newConditionError"></p>
+    </form>
+</div></h3>
+
     
-        
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -144,9 +156,9 @@
             </div>
             <div class="footer-section">
                 <h3>Follow Us</h3>
-                <a href="https://www.facebook.com/OfficialWSU?mibextid=LQQJ4d" target="_blank">Facebook</a> |
+                <a href="https://www.facebook.com/wsu" target="_blank">Facebook</a> |
                 <a href="https://twitter.com/wsu" target="_blank">Twitter</a> |
-                <a href="https://www.instagram.com/officialwsu?igsh=eHE0ajUzcGttYnli" target="_blank">Instagram</a>
+                <a href="https://www.instagram.com/wsu" target="_blank">Instagram</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -154,14 +166,7 @@
         </div>
     </footer>
 
-    <head>
-        <style>
-            body {
-              background-image: url('https://images.squarespace-cdn.com/content/v1/59ad30139f7456bae9782d44/1515617360694-Y1AY7BI2E2FYPR1Z2YUD/shutterstock_515731801.jpg');
-              background-repeat: no-repeat;
-              background-attachment: fixed;  
-              background-size: cover;
-            }
-        </style>
-    </head>
-    </html>
+    <script src="doctors.js"></script>
+
+</body>
+</html>
